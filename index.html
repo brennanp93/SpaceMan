@@ -8,16 +8,24 @@
     <link rel="stylesheet" href="css/style.css">
     <script defer src="js/main.js"></script>
 </head>
-<body> 
+<body class="flex-center"> 
     <h1>HANGMAN (pending new name)</h1>
     <h2 id="message"></h2>
-    <main id="boxes">
-        <div id="box1">_</div>
-        <div id="box2">_</div>
-        <div id="box3">_</div>
-        <div id="box4">_</div>
-        <div id="box5">_</div>
-    </main>
+    <main>
+    <div id=ladder>
+        <div id="ladder1">*</div>
+        <div id="ladder2">*</div>
+        <div id="ladder3">*</div>
+        <div id="ladder4">*</div>
+        <div id="ladder5">*</div>
+    </div>   
+    <div id="guess">
+        <div id="space1">_____</div>
+        <!-- <div id="space2">_</div>
+        <div id="space3">_</div>
+        <div id="space4">_</div>
+        <div id="space5">_</div> -->
+    </div>
     <div class="keyboard">
         <p class="letter">A</p>
         <p class="letter">B</p>
@@ -45,6 +53,8 @@
         <p class="letter">X</p>
         <p class="letter">Y</p>
         <p class="letter">Z</p>
+        <button>Play Again</button>
     </div>
+    </main>
 </body>
 </html>
