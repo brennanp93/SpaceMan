@@ -40,7 +40,7 @@ main * {
     /* text-align: end; */
 }
 
-.keyboard {
+#keyboard {
     background-color: rgb(130, 181, 206);
     flex-wrap: wrap;
     border-style: solid;
