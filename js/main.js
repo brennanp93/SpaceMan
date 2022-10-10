@@ -47,22 +47,17 @@ function resetGame() {
 
 
 init();
-function init() {
-    tries = 5;
-    currentWord = randomWord();
-    userChoice = [];
-    currentWord.forEach(function() {
-        let letterEl = document.createElement('div');
-        wordEl.appendChild(letterEl);
-    })
-    render()
-}
 
-function render() {
-
-}
-
-
+// function init() {
+//     tries = 5;
+//     currentWord = randomWord();
+//     userChoice = [];
+//     currentWord.forEach(function() {
+//         let letterEl = document.createElement('div');
+//         wordEl.appendChild(letterEl).innerText = ' _ '
+//     })
+//     render()
+// }
 
 function playerChoice(event) {
     if (event.target.tagName !== 'P' ||
@@ -75,6 +70,9 @@ function playerChoice(event) {
         tries -= 1;
         render()
     }
+}
+function renderWord() {
+    for (let i =0; i < currentWord)
 }
 
 //This is moving the innertext of the click to the userChoiceArray
