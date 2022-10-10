@@ -64,6 +64,8 @@ button {
     max-width:20px;
     margin-left: 10px;
     letter-spacing: 1em;
+    border-bottom: 3px solid black;
+    width: 40px;
 }
 
 #ladder > div {

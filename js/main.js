@@ -37,28 +37,25 @@ playAgainButton.addEventListener('click', resetGame);
 
   /*----- functions -----*/
 
+function render() {
+    renderWord();
 
-function resetGame() {
-    blankSpaces = ['null','null','null', 'null', 'null',];
-    userChoice = ['null','null','null', 'null', 'null',];
-    currentWord = randomWord();
-    // render();
 }
-
-
+  
+  
 init();
-
-// function init() {
-//     tries = 5;
-//     currentWord = randomWord();
-//     userChoice = [];
-//     currentWord.forEach(function() {
-//         let letterEl = document.createElement('div');
-//         wordEl.appendChild(letterEl).innerText = ' _ '
-//     })
-//     render()
-// }
-
+  
+function init() {
+    tries = 5;
+    currentWord = randomWord();
+    userChoice = [];
+    currentWord.forEach(function() {
+        let letterEl = document.createElement('div');
+        wordEl.appendChild(letterEl);
+    })
+    render();
+}
+    
 function playerChoice(event) {
     if (event.target.tagName !== 'P' ||
     userChoice.includes(event.target.innerText)
@@ -68,12 +65,42 @@ function playerChoice(event) {
         render();
     } else {
         tries -= 1;
-        render()
+        render();
     }
-}
+};
+    
 function renderWord() {
-    for (let i =0; i < currentWord)
-}
+    let letterEls = [...document.querySelectorAll('#guess > div')];
+    currentWord.forEach(function(letter, idx) {
+        if (userChoice.includes(letter)) {
+            letterEls[idx].innerHTML = letter;
+        }
+    })
+};
+
+
+// function renderWord() {
+//     let letterEls = [...document.querySelectorAll(‘#word > div’)];
+//     word.forEach(function(letter, idx) {
+//         if (userChoice.includes(letter)) {
+//             letterEls[idx].innerHTML = letter;
+//         }
+//     })
+// }
+
+
+
+
+function randomWord() {
+   let wordIdx = Math.floor(Math.random() * WORD_BANK.length)
+   currentWord = WORD_BANK[wordIdx].split('');
+   return currentWord;
+};
+
+
+
+
+
 
 //This is moving the innertext of the click to the userChoiceArray
 // function playerChoice(event) {
@@ -86,22 +113,23 @@ function renderWord() {
 // if(userChoice.length > MAX_GUESSES) return "you lose";
 
 
+        
+        //This is done
+        // this generates a random word from the WORD_BANK at the start of game.
+        // Then it splits it 
 
-//This is done
-// this generates a random word from the WORD_BANK at the start of game.
-// Then it splits it 
-function randomWord() {
-   let wordIdx = Math.floor(Math.random() * WORD_BANK.length)
-   currentWord = WORD_BANK[wordIdx].split('');
-   return currentWord;
-};
-
-
-
-
-// function randomWord() {
-//    let wordIdx = Math.floor(Math.random() * WORD_BANK.length)
-//    currentWord = WORD_BANK[wordIdx];
+        
+        
+        function resetGame() {
+            blankSpaces = ['null','null','null', 'null', 'null',];
+            userChoice = ['null','null','null', 'null', 'null',];
+            currentWord = randomWord();
+            // render();
+        }
+        
+        // function randomWord() {
+            //    let wordIdx = Math.floor(Math.random() * WORD_BANK.length)
+            //    currentWord = WORD_BANK[wordIdx];
 //    return currentWord.split('');
 // };
 
