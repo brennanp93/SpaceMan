@@ -33,4 +33,21 @@ they will be held in divs. (unless a table is better).
 
 constants will hold # of wrong guess as well as player ID. The solution array will also be a const. 
 
+<!--  -->
 
+Game starts on page load. 
+
+Include a prompt or instructions on how to start the game. "select a letter"
+
+1: user will click a letter. 
+2: letter is evaluated. 
+2a if letter is included in answer word > display letter & green out selected letter
+2b if letter is NOT included in answer word > remove spaceman's limb && grey out selected letter.
+3 repeat cycle && include additional instructions or prompt "x tries left"
+4 if word is guessed correctly in 6 guesses > display congratulatory message
+5 if word is NOT guessed correctly in 6 guesses > display losing message and display play again button
+
+
+<!--  -->
+
+functions list: 

@@ -9,20 +9,20 @@ const MAX_GUESSES = 5;
 
 let blankSpaces;
 
-let currentWord;
+let solutionWord; //randomly generated word is held here. 
 
-let tries; // how many tries left
+let remainingTries; // how many tries left
 
 let letter; //letter of word
 
 let result; //if you guessed the word before tries runs out
 
-let userChoice = []; // the player choice goes in here 
+let selectedLetters = []; // the player choice goes in here 
 
 
   /*----- cached elements  -----*/
 // const letterSelect = document.getElementById('keyboard');
-const letterSelect = document.querySelectorAll('keyboard > p');
+const keyboardLetters = document.querySelectorAll('keyboard > p');
 const playAgainButton = document.querySelector('button');
 const gameMessage = document.getElementById('message');
 const wordEl = document.getElementById('guess');
@@ -38,7 +38,7 @@ playAgainButton.addEventListener('click', resetGame);
   /*----- functions -----*/
 
 function render() {
-    renderWord();
+    renderSolution();
 
 }
   
@@ -46,10 +46,10 @@ function render() {
 init();
   
 function init() {
-    tries = 5;
-    currentWord = randomWord();
-    userChoice = [];
-    currentWord.forEach(function() {
+    remainingTries = 5;
+    solutionWord = randomWord();
+    selectedLetters = [];
+    solutionWord.forEach(function() {
         let letterEl = document.createElement('div');
         wordEl.appendChild(letterEl);
     })
@@ -58,26 +58,29 @@ function init() {
     
 function playerChoice(event) {
     if (event.target.tagName !== 'P' ||
-    userChoice.includes(event.target.innerText)
+    selectedLetters.includes(event.target.innerText)
     ) return;
-    userChoice.push(event.target.innerText)
-    if (currentWord.includes(event.target.innerText)) {
+    selectedLetters.push(event.target.innerText)
+    if (solutionWord.includes(event.target.innerText)) {
         render();
     } else {
-        tries -= 1;
+        remainingTries -= 1;
         render();
     }
 };
     
-function renderWord() {
+function renderSolution() {
     let letterEls = [...document.querySelectorAll('#guess > div')];
-    currentWord.forEach(function(letter, idx) {
-        if (userChoice.includes(letter)) {
+    solutionWord.forEach(function(letter, idx) {
+        if (selectedLetters.includes(letter)) {
             letterEls[idx].innerHTML = letter;
         }
     })
 };
 
+function checkLetter() {
+
+}
 
 // function renderWord() {
 //     let letterEls = [...document.querySelectorAll(‘#word > div’)];
@@ -93,8 +96,8 @@ function renderWord() {
 
 function randomWord() {
    let wordIdx = Math.floor(Math.random() * WORD_BANK.length)
-   currentWord = WORD_BANK[wordIdx].split('');
-   return currentWord;
+   solutionWord = WORD_BANK[wordIdx].split('');
+   return solutionWord;
 };
 
 
@@ -122,8 +125,8 @@ function randomWord() {
         
         function resetGame() {
             blankSpaces = ['null','null','null', 'null', 'null',];
-            userChoice = ['null','null','null', 'null', 'null',];
-            currentWord = randomWord();
+            selectedLetters = ['null','null','null', 'null', 'null',];
+            solutionWord = randomWord();
             // render();
         }
         
@@ -147,3 +150,40 @@ function randomWord() {
 // 1 add letter to blank space. 2remove piece of spaceman. 
 // 3 grey out letter on keyboard. 
 // }
+
+
+
+let currentGuess;
+
+let solution = 'BEANS';
+
+let solutionArray = solution.split('');
+
+function isGuessInSolution(letter) {
+    return solutionArray.includes(letter);
+}
+
+document.getElementById('keyboard').addEventListener('click', playTurn);
+
+function playTurn(event) {
+    currentGuess = event.target.innerText;
+    if (selectedLetters.includes(currentGuess)) return;
+    let correctGuess = isGuessInSolution(currentGuess);
+    if(correctGuess === true) {
+    // what happens if it is correct? 
+   
+    changeLetterSquareGreen(event.target);
+    // display correct letter
+    } else { 
+    // what happens if it is not correct?
+    changeLetterSquareGrey(event.target);
+        // remove spaceman limb
+    }
+}
+
+function changeLetterSquareGreen(target) {
+    target.style.backgroundColor = 'green';
+}
+function changeLetterSquareGrey(target) {
+    target.style.backgroundColor = 'grey';
+}
