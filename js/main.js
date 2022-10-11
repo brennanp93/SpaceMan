@@ -17,7 +17,7 @@ let letter; //letter of word
 
 let result; //if you guessed the word before tries runs out
 
-let selectedLetters = []; // the player choice goes in here 
+let SelectedLetters = []; // the player choice goes in here 
 
 
   /*----- cached elements  -----*/
@@ -38,29 +38,29 @@ playAgainButton.addEventListener('click', resetGame);
   /*----- functions -----*/
 
 function render() {
-    renderSolution();
+    // renderSolution();
 
 }
   
   
-init();
+// init();
   
-function init() {
-    remainingTries = 5;
-    solutionWord = randomWord();
-    selectedLetters = [];
-    solutionWord.forEach(function() {
-        let letterEl = document.createElement('div');
-        wordEl.appendChild(letterEl);
-    })
-    render();
-}
+// function init() {
+//     remainingTries = 5;
+//     solutionWord = randomWord();
+//     SelectedLetters = [];
+//     solutionWord.forEach(function() {
+//         let letterEl = document.createElement('div');
+//         wordEl.appendChild(letterEl);
+//     })
+//     render();
+// }
     
 function playerChoice(event) {
     if (event.target.tagName !== 'P' ||
-    selectedLetters.includes(event.target.innerText)
+    SelectedLetters.includes(event.target.innerText)
     ) return;
-    selectedLetters.push(event.target.innerText)
+    SelectedLetters.push(event.target.innerText)
     if (solutionWord.includes(event.target.innerText)) {
         render();
     } else {
@@ -69,14 +69,14 @@ function playerChoice(event) {
     }
 };
     
-function renderSolution() {
-    let letterEls = [...document.querySelectorAll('#guess > div')];
-    solutionWord.forEach(function(letter, idx) {
-        if (selectedLetters.includes(letter)) {
-            letterEls[idx].innerHTML = letter;
-        }
-    })
-};
+// function renderSolution() {
+//     let letterEls = [...document.querySelectorAll('#guess > div')];
+//     solutionWord.forEach(function(letter, idx) {
+//         if (SelectedLetters.includes(letter)) {
+//             letterEls[idx].innerHTML = letter;
+//         }
+//     })
+// };
 
 function checkLetter() {
 
@@ -125,7 +125,7 @@ function randomWord() {
         
         function resetGame() {
             blankSpaces = ['null','null','null', 'null', 'null',];
-            selectedLetters = ['null','null','null', 'null', 'null',];
+            SelectedLetters = ['null','null','null', 'null', 'null',];
             solutionWord = randomWord();
             // render();
         }
@@ -153,37 +153,101 @@ function randomWord() {
 
 
 
+const WORD_BANK1 = ['CRATES','BACKED', 'TRACES', 'BARELY', 'CLOSER', 'CLIENT' ]; 
+
+// let correctGuessLetters = [];
+let wrongGuessLetters = [];
+// const imagePath = `images/spaceman-0${wrongGuessLetters.length}.png`;
+
+let max_guesses1 = 6
+
 let currentGuess;
 
-let solution = 'BEANS';
+let solution = [];
 
-let solutionArray = solution.split('');
+// let solutionArray = solution.split('');
 
-function isGuessInSolution(letter) {
-    return solutionArray.includes(letter);
-}
+const imagePath = `images/spaceman-0${solution.length}.png`;
+console.log(imagePath)
 
+
+// const removeObject = document.getElementById('spaceman5');
 document.getElementById('keyboard').addEventListener('click', playTurn);
+const correctLetter = document.getElementById('guess');
+
+// functions
+// randomWordGenerator();
+initialize();
 
 function playTurn(event) {
     currentGuess = event.target.innerText;
-    if (selectedLetters.includes(currentGuess)) return;
+    // if (selectedLetters.includes(currentGuess)) return;
     let correctGuess = isGuessInSolution(currentGuess);
     if(correctGuess === true) {
-    // what happens if it is correct? 
-   
-    changeLetterSquareGreen(event.target);
-    // display correct letter
+        //create an array of the correct letters as they are selected.
+        // correctGuessLetters.push(event.target.innerText)
+        changeLetterSquareGreen(event.target);
+        // display correct letter
+        displayCorrectLetter(event.target);
     } else { 
-    // what happens if it is not correct?
-    changeLetterSquareGrey(event.target);
+        // what happens if it is not correct?
+        wrongGuessLetters.push(event.target.innerText);
+        console.log(wrongGuessLetters)
+        changeLetterSquareGrey(event.target);
         // remove spaceman limb
+
     }
 }
+
+
+
+function displayCorrectLetter(target) {
+    // correctLetter.innerText = currentGuess;
+    //add selected letter to a new element. 
+//    const newDiv = document.createElement('div');
+//    correctLetter.innerText = currentGuess;
+//    correctLetter.append(newDiv);
+//    console.log(correctLetter)
+}
+
 
 function changeLetterSquareGreen(target) {
     target.style.backgroundColor = 'green';
 }
+
 function changeLetterSquareGrey(target) {
     target.style.backgroundColor = 'grey';
+    
 }
+
+function removeSpacemanLimb() {
+    imagePath
+}
+
+function isGuessInSolution(letter) {
+    return solution.includes(letter);
+}
+
+function randomWordGenerator() {
+    let wordIndex = Math.floor(Math.random() * WORD_BANK1.length)
+    solution = WORD_BANK1[wordIndex].split('');
+    return solution;
+ };
+
+function initialize() {
+    solution = randomWordGenerator();
+    solution.forEach(function() {
+        let letterEl = document.createElement('div');
+        wordEl.appendChild(letterEl);
+    })
+    render();
+}
+
+// function renderSolutionv2(target) {
+//     //pushes the correctly selected letter to a new div element. 
+//     let targetLetter = [...document.getElementById('guess')];
+//     solution.forEach(function(letter, idx) {
+//         if (currentGuess.includes(solution)) {
+//             letterEls[idx].innerHTML = letter;
+//         }
+//     };

@@ -60,13 +60,14 @@ button {
 }
 
 #guess > div {
+    color: black;
     font-size: 2em;
     max-width:20px;
     margin-left: 10px;
     letter-spacing: 1em;
     border-bottom: 3px solid black;
     width: 40px;
-    margin-top: 20px;
+    /* margin: 20px 10px 20px 10px; */
     padding-left: 30px;
 }
 
@@ -81,8 +82,11 @@ button {
     height: 50px;
     width: 50px;
     padding: 5px 10px 5px 10px;  
-    
+}
 
+#spaceMan {
+    visibility: visible;
+}
 /* this is a reference keyboard VVVVV */
 /* .keyboard {
     max-width: 1085px;
