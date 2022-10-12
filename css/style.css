@@ -4,12 +4,13 @@
 }
 
 body {
+    color: white;
     margin: 0;
     height: 100vh;
     /* display: flex; */
     flex-direction: column;
     background-image: url(/images/pixelbg.png);
-    opacity: ;
+    background-size: cover;
 }
 main {
     display: grid;
@@ -87,42 +88,18 @@ button:hover {
 
 
 #guess {
-    color: black;
+    color: white;
     font-size: 4em;
     letter-spacing: 1em;
-    width: 100%;
+    /* width: 100%; */
     /* display:block;     */
     align-items: center;
     justify-content: center;
+    margin-bottom: 2vh;
+    background-color: rgba(255, 255, 255, 0.602);    
 }
 
 #spaceman {
     max-height: 50%;
     margin-top: 10%;
 }
-/* this is a reference keyboard VVVVV */
-/* .keyboard {
-    max-width: 1085px;
-    padding: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgb(197, 197, 197);
-    border-radius: 10px;
-    display: grid;
-    grid-template-columns: repeat(30, 30px);
-    grid-template-rows: repeat(5, 60px);
-    grid-gap: 5px;
-}
-
-
-.letter {
-    background-color: rgb(243, 243, 243);
-    border: 2px solid black;
-    border-radius: 5px;
-    grid-column: span 2;
-    font-size: 20px;
-    text-align: center;
-    padding-top: 17px;
-} */
