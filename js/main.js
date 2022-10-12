@@ -176,7 +176,7 @@ let selectedLetters = [];
 //cached elements
 const correctLetter = document.querySelectorAll('guess > div');
 const spaceManImage = document.getElementById("spaceman");
-const inGameMessage = document.getElementById('livesLeft')
+const inGameMessage = document.getElementById('livesLeft');
 
 // const removeObject = document.getElementById('spaceman5');
 // document.getElementById('keyboard').addEventListener('click', playTurn);
