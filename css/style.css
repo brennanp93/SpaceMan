@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Silkscreen', cursive;
 }
 
 body {
@@ -13,6 +13,16 @@ body {
 main {
     display: grid;
 }
+
+h1 {
+   font-size: 3em; 
+}
+
+#message {
+    font-size: 2em;
+    margin-bottom: 5%;
+}
+
 main * {
     display: flex;
     justify-content: center;
@@ -20,12 +30,18 @@ main * {
 }
 
 .flex-center{
+    
     display: flex;
     justify-content: center;
     align-items: center;
-    grid-template-columns: 35vmin, 15vmin, 35vmin;
+    grid-template-columns: 35vmin, 15vmin, 35vmin, 15vmin,;
     grid-template-rows: 35vmin, 15vmin, 35vmin 15vmin;
 }
+
+#keyboard > p {
+    font-size: 30px;
+}
+
 
 .letter{
     display: block;
@@ -40,6 +56,11 @@ main * {
     /* text-align: end; */
 }
 
+.letter:hover {
+    background-color: rgb(210, 166, 166);
+    cursor: pointer;
+}
+
 #keyboard {
     background-color: rgb(130, 181, 206);
     flex-wrap: wrap;
@@ -49,40 +70,29 @@ main * {
     border-radius: 10px;
     padding: 5px;
     margin-top: 1%;
+    height: ;
 }
+
 
 button {
     background-color: rgb(167, 196, 216);
+    position:inherit;
 }
 
-.letter:hover {
-    background-color: rgb(210, 166, 166);
-    cursor: pointer;
+button:hover {
+    background-color: red;
+    transform: scale(1.1);
 }
 
-#guess > div {
+
+#guess {
     color: black;
-    font-size: 2em;
-    max-width:20px;
-    margin-left: 10px;
+    font-size: 4em;
     letter-spacing: 1em;
-    border-bottom: 3px solid black;
-    width: 40px;
-    /* margin: 20px 10px 20px 10px; */
-    padding-left: 30px;
-}
-
-#ladder > div {
-    /* display: block; */
-    color: black;
-    background-color: white;
-    /* font-size: 20px; */
-    border-width: 1px;
-    border-color: black;
-    border-style: solid;
-    height: 50px;
-    width: 50px;
-    padding: 5px 10px 5px 10px;  
+    width: 100%;
+    /* display:block;     */
+    align-items: center;
+    justify-content: center;
 }
 
 #spaceman {
