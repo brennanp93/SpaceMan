@@ -17,7 +17,7 @@ let letter; //letter of word
 
 let result; //if you guessed the word before tries runs out
 
-let SelectedLetters = []; // the player choice goes in here 
+// let selectedLetters = []; // the player choice goes in here 
 
 
   /*----- cached elements  -----*/
@@ -30,7 +30,7 @@ const wordEl = document.getElementById('guess');
 // const blankSpaces = document.getElementById('guess');
 
   /*----- event listeners -----*/
-document.getElementById('keyboard').addEventListener('click', playerChoice);
+// document.getElementById('keyboard').addEventListener('click', playerChoice);
 playAgainButton.addEventListener('click', resetGame);
 // letterSelect.addEventListener('click', playerChoice);
 // document.querySelector('button').addEventListener('click', resetGame)
@@ -56,18 +56,18 @@ function render() {
 //     render();
 // }
     
-function playerChoice(event) {
-    if (event.target.tagName !== 'P' ||
-    SelectedLetters.includes(event.target.innerText)
-    ) return;
-    SelectedLetters.push(event.target.innerText)
-    if (solutionWord.includes(event.target.innerText)) {
-        render();
-    } else {
-        remainingTries -= 1;
-        render();
-    }
-};
+// function playerChoice(event) {
+//     if (event.target.tagName !== 'P' ||
+//     SelectedLetters.includes(event.target.innerText)
+//     ) return;
+//     SelectedLetters.push(event.target.innerText)
+//     if (solutionWord.includes(event.target.innerText)) {
+//         render();
+//     } else {
+//         remainingTries -= 1;
+//         render();
+//     }
+// };
     
 // function renderSolution() {
 //     let letterEls = [...document.querySelectorAll('#guess > div')];
@@ -151,41 +151,50 @@ function randomWord() {
 // 3 grey out letter on keyboard. 
 // }
 
-
+// --------------------------------------------------------------------
 
 const WORD_BANK1 = ['CRATES','BACKED', 'TRACES', 'BARELY', 'CLOSER', 'CLIENT' ]; 
 
 // let correctGuessLetters = [];
 let wrongGuessLetters = [];
+let correctGuessLetters = [];
 // const imagePath = `images/spaceman-0${wrongGuessLetters.length}.png`;
 
-let max_guesses1 = 6
+let remainingGuesses = 6
+let imagePath = `images/spaceman-0${remainingGuesses}.png`;
 
 let currentGuess;
 
 let solution = [];
 
+let selectedLetters = [];
+
 // let solutionArray = solution.split('');
 
-const imagePath = `images/spaceman-0${solution.length}.png`;
-console.log(imagePath)
 
+
+//cached elements
+const correctLetter = document.querySelectorAll('guess > div');
+const spaceManImage = document.getElementById("spaceman");
+const inGameMessage = document.getElementById('livesLeft')
 
 // const removeObject = document.getElementById('spaceman5');
-document.getElementById('keyboard').addEventListener('click', playTurn);
-const correctLetter = document.getElementById('guess');
+// document.getElementById('keyboard').addEventListener('click', playTurn);
+document.getElementById('keyboard').addEventListener('click', playerLetterSelect);
 
 // functions
 // randomWordGenerator();
 initialize();
 
-function playTurn(event) {
+function playerLetterSelect(event) {
+    if(event.target.tagName !== 'P') return;
     currentGuess = event.target.innerText;
     // if (selectedLetters.includes(currentGuess)) return;
     let correctGuess = isGuessInSolution(currentGuess);
     if(correctGuess === true) {
         //create an array of the correct letters as they are selected.
-        // correctGuessLetters.push(event.target.innerText)
+        correctGuessLetters.push(event.target.innerText)
+        console.log(correctGuessLetters)
         changeLetterSquareGreen(event.target);
         // display correct letter
         displayCorrectLetter(event.target);
@@ -194,22 +203,24 @@ function playTurn(event) {
         wrongGuessLetters.push(event.target.innerText);
         console.log(wrongGuessLetters)
         changeLetterSquareGrey(event.target);
-        // remove spaceman limb
-
+        remainingGuesses--;
     }
+    render()
 }
 
+function render() {
+    renderImage()
+}
 
+function renderImage() {
+    spaceManImage.innerHTML = `<img src="images/spaceman-0${remainingGuesses}.png">`
+}
 
 function displayCorrectLetter(target) {
-    // correctLetter.innerText = currentGuess;
-    //add selected letter to a new element. 
-//    const newDiv = document.createElement('div');
-//    correctLetter.innerText = currentGuess;
-//    correctLetter.append(newDiv);
-//    console.log(correctLetter)
-}
+    correctLetter.innerText = currentGuess;
+//add selected letter to a new element. 
 
+}
 
 function changeLetterSquareGreen(target) {
     target.style.backgroundColor = 'green';

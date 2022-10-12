@@ -57,6 +57,7 @@ button {
 
 .letter:hover {
     background-color: rgb(210, 166, 166);
+    cursor: pointer;
 }
 
 #guess > div {
