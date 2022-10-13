@@ -4,20 +4,20 @@
 }
 
 body {
-    color: white;
+    display: grid;
+    color: greenyellow;
     margin: 0;
     height: 100vh;
-    /* display: flex; */
     flex-direction: column;
     background-image: url(/images/pixelbg.png);
     background-size: cover;
 }
 main {
-    display: grid;
 }
 
 h1 {
    font-size: 3em; 
+   margin-top: 10%;
 }
 
 #message {
@@ -36,22 +36,25 @@ main * {
     display: flex;
     justify-content: center;
     align-items: center;
-    grid-template-columns: 35vmin, 15vmin, 35vmin, 15vmin,;
-    grid-template-rows: 35vmin, 15vmin, 35vmin 15vmin;
+    /* grid-template-columns: 35vmin, 15vmin, 35vmin, 15vmin,;
+    grid-template-rows: 35vmin, 15vmin, 35vmin 15vmin; */
+    grid-template-columns: 1fr, 1fr, 1fr, 1fr;
+    grid-template-rows: 1fr, 1fr, 1fr, 1fr, 1fr;
 }
 
 #keyboard > p {
     font-size: 30px;
+    padding: 10px 10px 10px;
 }
 
 
 .letter{
     display: block;
-    color: black;
-    background-color: rgb(177, 214, 246);
+    color: greenyellow;
+    background-color: black;
     font-size: 20px;
     border-width: 1px;
-    border-color: black;
+    border-color: white;
     border-style: solid;
     max-width: 50px;
     padding: 5px 10px 5px 10px;
@@ -59,26 +62,35 @@ main * {
 }
 
 .letter:hover {
-    background-color: rgb(210, 166, 166);
+    background-color: greenyellow;
+    color: black;
+    border-color: black;
+    border-width: 3px;
     cursor: pointer;
 }
 
 #keyboard {
-    background-color: rgb(130, 181, 206);
+    /* background-color: rgb(235, 229, 229); */
+    background-color: black;
     flex-wrap: wrap;
-    border-style: solid;
+    border-style: dashed;
     border-color: black;
     border-width: 5px;
     border-radius: 10px;
     padding: 5px;
+    padding-bottom: ;
     margin-top: 1%;
     height: ;
 }
 
 
 button {
-    background-color: rgb(167, 196, 216);
+    display: flex;
+    background-color: black;
+    color: greenyellow;
     position:inherit;
+    margin-bottom: 10%;
+    height: 50px;
 }
 
 button:hover {
@@ -88,18 +100,19 @@ button:hover {
 
 
 #guess {
-    color: white;
+    color: black;
     font-size: 4em;
     letter-spacing: 1em;
-    /* width: 100%; */
-    /* display:block;     */
+    width: 100%;
     align-items: center;
-    justify-content: center;
     margin-bottom: 2vh;
-    background-color: rgba(255, 255, 255, 0.602);    
+    margin-top: 5%;
+    /* background-color: rgb(235, 229, 229); */
+    background-image: url(/images/ufo.001.png);
+    /* border-radius: 50%;     */
 }
 
 #spaceman {
     max-height: 50%;
-    margin-top: 10%;
+    margin-top: 5%;
 }

@@ -1,5 +1,5 @@
 
-const WORD_BANK = ['CRATES', 'BACKED', 'TRACES', 'BARELY', 'CLOSER', 'CLIENT'];
+const WORD_BANK = ['UFO', 'COMET', 'SPACE', 'SHIP', 'STAR', 'PLANET', 'SOLAR', 'EARTHLING', 'ALIEN'];
 
 let wrongGuessLetters;
 
@@ -20,9 +20,10 @@ const livesLeft = document.getElementById('livesLeft');
 const playButton = document.getElementById('btn');
 const gameMessage = document.getElementById('message');
 
+
 // Event Listeners
 document.getElementById('keyboard').addEventListener('click', playerLetterSelect);
-playButton.addEventListener('click', initialize);
+playButton.addEventListener('click', refreshBoard);
 // functions
 
 initialize();
@@ -33,6 +34,7 @@ function initialize() {
     gameStatus = null;
     randomWordGenerator();
     render();
+    resetKeyboardColors();
 }
 
 function randomWordGenerator() {
@@ -90,12 +92,13 @@ function isGuessInSolution(letter) {
 
 
 function changeLetterSquareGreen(target) {
-    target.style.backgroundColor = 'green';
+    target.style.backgroundColor = 'limegreen';
+    target.style.color = 'black';
 };
 
 function changeLetterSquareGrey(target) {
-    target.style.backgroundColor = 'black';
-
+    target.style.color = 'black';
+    
 };
 
 function renderMessage() {
@@ -106,24 +109,17 @@ function renderMessage() {
         
     } else {
         gameMessage.innerText = `Keep Playing! You have ${remainingGuesses - wrongGuessLetters.length + 1} guesses left `
-
+        
     }
 };
 
 
 function displayCorrectLetter() {
-   let index = solution.indexOf(currentGuess);
+    let index = solution.indexOf(currentGuess);
     correctGuessLetters.splice(index, 1, currentGuess);
 };
 
 
-
-
-
-// function renderWord() {
-//     let letterChoice = [...document.querySelectorAll(‘#guess > div’)];
-//     correctGuessLetters.forEach(function(letter, idx) {
-//         if (userChoice.includes(letter)) {
-//             letterChoice[idx].innerText = letter;
-//         }
-//     })
+function refreshBoard () {
+    window.location.reload()
+   }
