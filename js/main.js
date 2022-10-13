@@ -1,15 +1,15 @@
-
+//Constants
 const WORD_BANK = ['UFO', 'COMET', 'SPACE', 'SHIP', 'STAR', 'PLANET', 'SOLAR', 'EARTHLING', 'ALIEN'];
 
+// State Variables
 let wrongGuessLetters;
 
 let correctGuessLetters;
 
-let remainingGuesses = 5;
+let remainingGuesses;
 
 let solution;
 
-//This will determine win logic. Value of Null, W for win or L for loss
 let gameStatus;
 
 
@@ -24,18 +24,18 @@ const gameMessage = document.getElementById('message');
 // Event Listeners
 document.getElementById('keyboard').addEventListener('click', playerLetterSelect);
 playButton.addEventListener('click', refreshBoard);
-// functions
 
+// functions
 initialize();
 
 function initialize() {
     wrongGuessLetters = [];
     correctGuessLetters = [];
     gameStatus = null;
+    remainingGuesses = 5;
     randomWordGenerator();
     render();
-    resetKeyboardColors();
-}
+};
 
 function randomWordGenerator() {
     let wordIndex = Math.floor(Math.random() * WORD_BANK.length)
@@ -49,32 +49,25 @@ function render() {
     renderMessage();
     correctLetter.innerHTML = correctGuessLetters.join('');
 
-}
+};
 
 function renderImage() {
     const imagePath = `images/spaceman-0${wrongGuessLetters.length}.png`;
     spaceManImage.src = imagePath;
-}
+};
 
 function playerLetterSelect(event) {
     if (event.target.tagName !== 'P') return;
     currentGuess = event.target.textContent;
-    // console.log(currentGuess)
-    // if (selectedLetters.includes(currentGuess)) return;
     let correctGuess = isGuessInSolution(currentGuess);
     if (correctGuess === true) {
-        //create an array of the correct letters as they are selected.
         displayCorrectLetter();
         console.log(correctGuessLetters)
         changeLetterSquareGreen(event.target);
-        // display correct letter
-        // displayCorrectLetter(event.target);
     } else {
-        // what happens if it is not correct?
         wrongGuessLetters.push(event.target.innerText);
         console.log(wrongGuessLetters)
         changeLetterSquareGrey(event.target);
-        // remainingGuesses--;
     }
     gameStatus = getGameStatus();
     render()
@@ -98,7 +91,7 @@ function changeLetterSquareGreen(target) {
 
 function changeLetterSquareGrey(target) {
     target.style.color = 'black';
-    
+
 };
 
 function renderMessage() {
@@ -106,20 +99,18 @@ function renderMessage() {
         gameMessage.innerText = `Congratulations!!`
     } else if (gameStatus === 'L') {
         gameMessage.innerText = `Oh no! You Lost! The secret word was ${solution.join('')}`
-        
+
     } else {
         gameMessage.innerText = `Keep Playing! You have ${remainingGuesses - wrongGuessLetters.length + 1} guesses left `
-        
+
     }
 };
-
 
 function displayCorrectLetter() {
     let index = solution.indexOf(currentGuess);
     correctGuessLetters.splice(index, 1, currentGuess);
 };
 
-
-function refreshBoard () {
+function refreshBoard() {
     window.location.reload()
-   }
+};
