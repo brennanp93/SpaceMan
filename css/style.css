@@ -9,7 +9,7 @@ body {
     margin: 0;
     height: 100vh;
     flex-direction: column;
-    background-image: url(/images/pixelbg.png);
+    background-image: url(https://brennanp93.github.io/SpaceMan/images/pixelbg.png);
     background-size: cover;
 }
 
@@ -37,7 +37,7 @@ main * {
     /* grid-template-columns: 35vmin, 15vmin, 35vmin, 15vmin,;
     grid-template-rows: 35vmin, 15vmin, 35vmin 15vmin; */
     grid-template-columns: 1fr, 1fr, 1fr, 1fr;
-    grid-template-rows: 1fr, 1fr, 1fr, 1fr, 1fr;
+    grid-template-rows: 1fr, 1fr, 1fr;
 }
 
 #keyboard > p {
@@ -89,6 +89,7 @@ button {
     color: greenyellow;
     position:inherit;
     margin-bottom: 10%;
+    margin-top: 10px;
     width: 150px;
     border-style: dashed;
     border-width: 5px;
