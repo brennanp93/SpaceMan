@@ -1,5 +1,5 @@
 //Constants
-const WORD_BANK = ['UFO', 'COMET', 'SPACE', 'SHIP', 'STAR', 'PLANET', 'SOLAR', 'EARTHLING', 'ALIEN'];
+const WORD_BANK = ['ABDUCTIONS','UFO', 'COMET', 'SPACE', 'SHIP', 'STAR', 'PLANET', 'SOLAR', 'EARTHLING', 'ALIEN'];
 
 // State Variables
 let wrongGuessLetters;
@@ -8,7 +8,7 @@ let correctGuessLetters;
 
 let remainingGuesses;
 
-let solution;
+let solutionWord;
 
 let gameStatus;
 
@@ -39,8 +39,8 @@ function initialize() {
 
 function randomWordGenerator() {
     let wordIndex = Math.floor(Math.random() * WORD_BANK.length)
-    solution = WORD_BANK[wordIndex].split('');
-    correctGuessLetters = solution.map(ltr => ltr === ' ' ? ' ' : '_')
+    solutionWord = WORD_BANK[wordIndex].split('');
+    correctGuessLetters = solutionWord.map(ltr => ltr === ' ' ? ' ' : '_')
     return correctGuessLetters;
 };
 
@@ -62,12 +62,10 @@ function handleDrop(event) {
     let correctGuess = isGuessInSolution(currentGuess);
     if (correctGuess === true) {
         displayCorrectLetter();
-        console.log(correctGuessLetters)
-        changeLetterSquareGreen(event.target);
+        markLetterSquareCorrect(event.target);
     } else {
         wrongGuessLetters.push(event.target.innerText);
-        console.log(wrongGuessLetters)
-        changeLetterSquareGrey(event.target);
+        markLetterSquareIncorrect(event.target);
     }
     gameStatus = getGameStatus();
     render()
@@ -80,16 +78,15 @@ function getGameStatus() {
 };
 
 function isGuessInSolution(letter) {
-    return solution.includes(letter);
+    return solutionWord.includes(letter);
 };
 
-
-function changeLetterSquareGreen(target) {
+function markLetterSquareCorrect(target) {
     target.style.backgroundColor = 'limegreen';
     target.style.color = 'black';
 };
 
-function changeLetterSquareGrey(target) {
+function markLetterSquareIncorrect(target) {
     target.innerText = '*'
     target.style.color = 'red';
 };
@@ -98,7 +95,7 @@ function renderMessage() {
     if (gameStatus === 'W') {
         gameMessage.innerText = `Congratulations!!`
     } else if (gameStatus === 'L') {
-        gameMessage.innerText = `Oh no! You Lost! The secret word was ${solution.join('')}`
+        gameMessage.innerText = `Oh no! You Lost! The secret word was ${solutionWord.join('')}`
 
     } else {
         gameMessage.innerText = `Keep Playing! You have ${remainingGuesses - wrongGuessLetters.length + 1} guesses left `
@@ -107,7 +104,7 @@ function renderMessage() {
 };
 
 function displayCorrectLetter() {
-    let index = solution.indexOf(currentGuess);
+    let index = solutionWord.indexOf(currentGuess);
     correctGuessLetters.splice(index, 1, currentGuess);
 };
 

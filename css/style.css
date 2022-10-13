@@ -5,7 +5,7 @@
 
 body {
     color: greenyellow;
-    margin: 15% 0% 15% 0%;
+    margin: 10% 0% 10% 0%;
     height: 100vh;
     flex-direction: column;
     background-image: url(https://brennanp93.github.io/SpaceMan/images/pixelbg.png);
@@ -34,7 +34,7 @@ main * {
 
 #keyboard > p {
     font-size: 30px;
-    padding: 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
 }
 
 
@@ -48,6 +48,7 @@ main * {
     width: 50px;
     text-align: center;
     padding: 5px 10px 5px 10px;
+    /* margin: 1px; */
 }
 
 .letter:hover {
@@ -65,7 +66,7 @@ main * {
     border-width: 5px;
     padding: 5px;
     padding-bottom: ;
-    margin-top: 1%;
+    /* margin: 1% 0% 1% 0%; */
 }
 
 

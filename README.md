@@ -20,3 +20,4 @@ SpaceMan is a re-envisioned and family friendly version of the classic whiteboar
 - Change the style of the whole game
 - Allow words with repeating letters
 - Refactor the play again button 
+- Allow player to choose from word categories
