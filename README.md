@@ -4,7 +4,7 @@ SpaceMan is a re-envisioned and family friendly version of the classic whiteboar
 # Screenshot
 
 <img src="https://i.imgur.com/a1BPy1G.png">
-<img src="https://i.imgur.com/VeQsFlz.png">
+<img src="https://i.imgur.com/Jfa8j99.png">
 
 # Technologies used
 - JavaScript

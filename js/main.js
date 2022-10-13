@@ -19,10 +19,10 @@ const spaceManImage = document.querySelector("img");
 const livesLeft = document.getElementById('livesLeft');
 const playButton = document.getElementById('btn');
 const gameMessage = document.getElementById('message');
-
+const keyboard = document.getElementById('keyboard');
 
 // Event Listeners
-document.getElementById('keyboard').addEventListener('click', handleDrop);
+keyboard.addEventListener('click', handleDrop);
 playButton.addEventListener('click', refreshBoard);
 
 // functions
@@ -102,6 +102,9 @@ function renderMessage() {
 
     }
 };
+function renderMessageV2() {
+    
+}
 
 function displayCorrectLetter() {
     let index = solutionWord.indexOf(currentGuess);
