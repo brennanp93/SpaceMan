@@ -4,23 +4,25 @@
 }
 
 body {
-    display: grid;
+    /* display: grid; */
     color: greenyellow;
-    margin: 0;
+    margin: 15% 0% 15% 0%;
     height: 100vh;
     flex-direction: column;
     background-image: url(https://brennanp93.github.io/SpaceMan/images/pixelbg.png);
     background-size: cover;
+    /* grid-template-columns: 1fr, 1fr; 
+    grid-template-rows: 1fr, 1fr; */
 }
 
 h1 {
-   font-size: 3em; 
-   margin-top: 10%;
+   font-size: 4em; 
+   /* margin-top: 10%; */
 }
 
 #message {
     font-size: 2em;
-    margin-bottom: 5%;
+    /* margin-bottom: 5%; */
 }
 
 main * {
@@ -30,14 +32,13 @@ main * {
 }
 
 .flex-center{
-    
     display: flex;
     justify-content: center;
     align-items: center;
     /* grid-template-columns: 35vmin, 15vmin, 35vmin, 15vmin,;
     grid-template-rows: 35vmin, 15vmin, 35vmin 15vmin; */
-    grid-template-columns: 1fr, 1fr, 1fr, 1fr;
-    grid-template-rows: 1fr, 1fr, 1fr;
+    /* grid-template-columns: 1fr, 1fr, 1fr, 1fr;
+    grid-template-rows: 1fr, 1fr, 1fr; */
 }
 
 #keyboard > p {
@@ -47,7 +48,7 @@ main * {
 
 
 .letter{
-    display: block;
+    /* display: block; */
     color: greenyellow;
     background-color: black;
     font-size: 20px;
