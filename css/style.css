@@ -12,8 +12,6 @@ body {
     background-image: url(/images/pixelbg.png);
     background-size: cover;
 }
-main {
-}
 
 h1 {
    font-size: 3em; 
@@ -56,7 +54,8 @@ main * {
     border-width: 1px;
     border-color: white;
     border-style: solid;
-    max-width: 50px;
+    width: 50px;
+    text-align: center;
     padding: 5px 10px 5px 10px;
     /* text-align: end; */
 }
@@ -71,26 +70,30 @@ main * {
 
 #keyboard {
     /* background-color: rgb(235, 229, 229); */
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.531);
     flex-wrap: wrap;
     border-style: dashed;
-    border-color: black;
+    border-color: yellowgreen;
     border-width: 5px;
-    border-radius: 10px;
     padding: 5px;
     padding-bottom: ;
     margin-top: 1%;
-    height: ;
+   
 }
 
 
 button {
     display: flex;
+    font-size: 2em;
     background-color: black;
     color: greenyellow;
     position:inherit;
     margin-bottom: 10%;
-    height: 50px;
+    width: 150px;
+    border-style: dashed;
+    border-width: 5px;
+    border-color: yellowgreen;
+    
 }
 
 button:hover {
