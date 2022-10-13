@@ -4,25 +4,20 @@
 }
 
 body {
-    /* display: grid; */
     color: greenyellow;
     margin: 15% 0% 15% 0%;
     height: 100vh;
     flex-direction: column;
     background-image: url(https://brennanp93.github.io/SpaceMan/images/pixelbg.png);
     background-size: cover;
-    /* grid-template-columns: 1fr, 1fr; 
-    grid-template-rows: 1fr, 1fr; */
 }
 
 h1 {
    font-size: 4em; 
-   /* margin-top: 10%; */
 }
 
 #message {
     font-size: 2em;
-    /* margin-bottom: 5%; */
 }
 
 main * {
@@ -35,10 +30,6 @@ main * {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* grid-template-columns: 35vmin, 15vmin, 35vmin, 15vmin,;
-    grid-template-rows: 35vmin, 15vmin, 35vmin 15vmin; */
-    /* grid-template-columns: 1fr, 1fr, 1fr, 1fr;
-    grid-template-rows: 1fr, 1fr, 1fr; */
 }
 
 #keyboard > p {
@@ -48,7 +39,6 @@ main * {
 
 
 .letter{
-    /* display: block; */
     color: greenyellow;
     background-color: black;
     font-size: 20px;
@@ -58,7 +48,6 @@ main * {
     width: 50px;
     text-align: center;
     padding: 5px 10px 5px 10px;
-    /* text-align: end; */
 }
 
 .letter:hover {
@@ -69,7 +58,6 @@ main * {
 }
 
 #keyboard {
-    /* background-color: rgb(235, 229, 229); */
     background-color: rgba(0, 0, 0, 0.531);
     flex-wrap: wrap;
     border-style: dashed;
@@ -78,7 +66,6 @@ main * {
     padding: 5px;
     padding-bottom: ;
     margin-top: 1%;
-   
 }
 
 
@@ -108,12 +95,8 @@ button:hover {
     font-size: 4em;
     letter-spacing: 1em;
     width: 100%;
-    align-items: center;
     margin-bottom: 2vh;
     margin-top: 5%;
-    /* background-color: rgb(235, 229, 229); */
-    background-image: url(/images/ufo.001.png);
-    /* border-radius: 50%;     */
 }
 
 #spaceman {

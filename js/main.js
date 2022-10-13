@@ -22,7 +22,7 @@ const gameMessage = document.getElementById('message');
 
 
 // Event Listeners
-document.getElementById('keyboard').addEventListener('click', playerLetterSelect);
+document.getElementById('keyboard').addEventListener('click', handleDrop);
 playButton.addEventListener('click', refreshBoard);
 
 // functions
@@ -56,7 +56,7 @@ function renderImage() {
     spaceManImage.src = imagePath;
 };
 
-function playerLetterSelect(event) {
+function handleDrop(event) {
     if (event.target.tagName !== 'P') return;
     currentGuess = event.target.textContent;
     let correctGuess = isGuessInSolution(currentGuess);
@@ -90,8 +90,8 @@ function changeLetterSquareGreen(target) {
 };
 
 function changeLetterSquareGrey(target) {
-    target.style.color = 'black';
-
+    target.innerText = '*'
+    target.style.color = 'red';
 };
 
 function renderMessage() {
