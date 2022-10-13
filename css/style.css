@@ -64,7 +64,6 @@ main * {
     background-color: greenyellow;
     color: black;
     border-color: black;
-    border-width: 3px;
     cursor: pointer;
 }
 
