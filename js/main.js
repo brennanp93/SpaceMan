@@ -33,6 +33,7 @@ function initialize() {
     correctGuessLetters = [];
     gameStatus = null;
     remainingGuesses = 5;
+    playButton.style.visibility = 'hidden';
     randomWordGenerator();
     render();
 };
@@ -94,9 +95,10 @@ function markLetterSquareIncorrect(target) {
 function renderMessage() {
     if (gameStatus === 'W') {
         gameMessage.innerText = `Congratulations!!`
+        playButton.style.visibility = 'visible';
     } else if (gameStatus === 'L') {
         gameMessage.innerText = `Oh no! You Lost! The secret word was ${solutionWord.join('')}`
-
+        playButton.style.visibility = 'visible';
     } else {
         gameMessage.innerText = `You have ${remainingGuesses - wrongGuessLetters.length + 1} guesses left `
 
@@ -109,5 +111,5 @@ function displayCorrectLetter() {
 };
 
 function refreshBoard() {
-    window.location.reload()
+   return window.location.reload()
 };
