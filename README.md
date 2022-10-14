@@ -19,4 +19,4 @@ SpaceMan is a re-envisioned and family friendly version of the classic whiteboar
 - Continue styling with CSS
 - Change the style of the whole game
 - Allow player to choose from word categories
-- Allow player to choose from 'easy', 'moderate','difficult categories
+- Allow player to choose from 'easy', 'moderate', & 'difficult' categories
