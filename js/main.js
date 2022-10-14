@@ -1,5 +1,5 @@
 //Constants
-const WORD_BANK = ['ABDUCTIONS','UFO', 'COMET', 'SPACE', 'SHIP', 'STAR', 'PLANET', 'SOLAR', 'EARTHLING', 'ALIEN'];
+const WORD_BANK = ['ABDUCTIONS', 'UFO', 'COMET', 'SPACE', 'SHIP', 'STAR', 'PLANET', 'SOLAR', 'EARTHLING', 'ALIEN'];
 
 // State Variables
 let wrongGuessLetters;
@@ -16,7 +16,6 @@ let gameStatus;
 //cached elements
 const correctLetter = document.getElementById('guess');
 const spaceManImage = document.querySelector("img");
-const livesLeft = document.getElementById('livesLeft');
 const playButton = document.getElementById('btn');
 const gameMessage = document.getElementById('message');
 const keyboard = document.getElementById('keyboard');
@@ -94,7 +93,7 @@ function markLetterSquareIncorrect(target) {
 
 function renderMessage() {
     if (gameStatus === 'W') {
-        gameMessage.innerText = `Congratulations!!`
+        gameMessage.innerText = `Congratulations!! You saved the spaceman!`
         playButton.style.visibility = 'visible';
     } else if (gameStatus === 'L') {
         gameMessage.innerText = `Oh no! You Lost! The secret word was ${solutionWord.join('')}`
@@ -111,5 +110,5 @@ function displayCorrectLetter() {
 };
 
 function refreshBoard() {
-   return window.location.reload()
+    return window.location.reload()
 };

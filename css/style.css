@@ -5,13 +5,11 @@
 
 body {
     color: greenyellow;
-    height: 75%;
-    /* flex-direction: column; */
+    height: 100vh;
     background-image: url(https://brennanp93.github.io/SpaceMan/images/pixelbg.png);
     background-size: cover;
-    /* display: flex; */
-    /* justify-content: center; */
-    /* align-items: center; */
+    background-repeat: no-repeat;
+    padding-top: 45px;
 }
 
 h1 {
@@ -30,27 +28,17 @@ main * {
 
 main {
     margin: 0% 5% 0% 5%;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
-
 }
 
-/* .flex-center{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
 
 #keyboard > p {
     font-size: 30px;
     padding: 10px 10px 10px 10px;
-    /* width: 100%; */
 }
-
 
 .letter{
     color: greenyellow;
@@ -62,7 +50,6 @@ main {
     width: 40px;
     text-align: center;
     padding: 5px 10px 5px 10px;
-    /* margin: 1px; */
 }
 
 .letter:hover {
@@ -79,8 +66,6 @@ main {
     border-color: yellowgreen;
     border-width: 5px;
     padding: 5px;
-    /* grid-column: span 2; */
-    padding-bottom:;
 }
 
 
@@ -96,7 +81,6 @@ button {
     border-style: dashed;
     border-width: 5px;
     border-color: yellowgreen;
-    
 }
 
 button:hover {
@@ -106,7 +90,6 @@ button:hover {
     transform: scale(1.1);
 }
 
-
 #guess {
     color: white;
     font-size: 4em;
@@ -114,7 +97,6 @@ button:hover {
     width: 100%;
     height: 100px;
     margin-bottom: 1%;
-    /* margin-top: 5%; */
 }
 
 img {
