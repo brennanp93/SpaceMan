@@ -1,5 +1,6 @@
 //Constants
-const WORD_BANK = ['ABDUCTIONS', 'UFO', 'COMET', 'SPACE', 'SHIP', 'STAR', 'PLANET', 'SOLAR', 'EARTHLING', 'ALIEN'];
+const WORD_BANK = ['ABDUCTIONS', 'UFO', 'COMET', 'SPACE', 'SHIP', 'STAR', 'PLANET', 'SOLAR', 'EARTHLING', 'ALIEN', 'CELESTIAL', 'GALACTIC', 'QUASAR', 'INTERGALACTIC'];
+
 
 // State Variables
 let wrongGuessLetters;
@@ -40,15 +41,13 @@ function initialize() {
 function randomWordGenerator() {
     let wordIndex = Math.floor(Math.random() * WORD_BANK.length)
     solutionWord = WORD_BANK[wordIndex].split('');
-    correctGuessLetters = solutionWord.map(ltr => ltr === ' ' ? ' ' : '_')
-    return correctGuessLetters;
+    correctGuessLetters = solutionWord.map(ltr => ltr === ' ' ? ' ' : '_');
 };
 
 function render() {
     renderImage();
     renderMessage();
     correctLetter.innerHTML = correctGuessLetters.join('');
-
 };
 
 function renderImage() {
@@ -105,9 +104,12 @@ function renderMessage() {
 };
 
 function displayCorrectLetter() {
-    let index = solutionWord.indexOf(currentGuess);
-    correctGuessLetters.splice(index, 1, currentGuess);
-};
+    solutionWord.forEach(function(letter, index) {
+        if (currentGuess === letter) {
+            correctGuessLetters[index] = currentGuess;
+        } 
+    })
+}
 
 function refreshBoard() {
     return window.location.reload()
