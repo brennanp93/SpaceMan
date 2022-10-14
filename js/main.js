@@ -55,22 +55,6 @@ function renderImage() {
     spaceManImage.src = imagePath;
 };
 
-// function handleDrop(event) {
-//     if (event.target.tagName !== 'P') return;
-//     if (gameStatus !== null) return;
-//     currentGuess = event.target.textContent;
-//     let correctGuess = isGuessInSolution(currentGuess);
-//     if (correctGuess === true) {
-//         displayCorrectLetter();
-//         markLetterSquareCorrect(event.target);
-//     } else {
-//         wrongGuessLetters.push(event.target.innerText);
-//         markLetterSquareIncorrect(event.target);
-//     }
-//     gameStatus = getGameStatus();
-//     render()
-// };
-
 function handleDrop(event) {
     if (event.target.tagName !== 'P') return;
     if (gameStatus !== null) return;
@@ -84,7 +68,6 @@ function handleDrop(event) {
         markLetterSquareIncorrect(event.target);
         event.target.style.pointerEvents = 'none';
     }
-    // if (wrongGuessLetters.includes(currentGuess))return;
     gameStatus = getGameStatus();
     render()
 };
