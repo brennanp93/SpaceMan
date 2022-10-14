@@ -57,7 +57,7 @@ function renderImage() {
 };
 
 function handleDrop(event) {
-    if (event.target.tagName !== 'P') return;
+    if (event.target.tagName !== 'P' || gameStatus !== null) return;
     currentGuess = event.target.textContent;
     let correctGuess = isGuessInSolution(currentGuess);
     if (correctGuess === true) {
@@ -98,13 +98,10 @@ function renderMessage() {
         gameMessage.innerText = `Oh no! You Lost! The secret word was ${solutionWord.join('')}`
 
     } else {
-        gameMessage.innerText = `Keep Playing! You have ${remainingGuesses - wrongGuessLetters.length + 1} guesses left `
+        gameMessage.innerText = `You have ${remainingGuesses - wrongGuessLetters.length + 1} guesses left `
 
     }
 };
-function renderMessageV2() {
-    
-}
 
 function displayCorrectLetter() {
     let index = solutionWord.indexOf(currentGuess);
