@@ -13,7 +13,7 @@ body {
 }
 
 h1 {
-  font-size: 35px;
+  font-size: px;
 }
 
 #message {
@@ -102,10 +102,7 @@ img {
   height: 250px;
 }
 
-@media only screen 
-    and (device-width : 375px) 
-    and (device-height : 812px) 
-    and (-webkit-device-pixel-ratio : 3) {
+@media (max-width: 600px) {
 
   .letter {
     color: greenyellow;
@@ -113,9 +110,10 @@ img {
     font-size: 2em;
     border-width: 1px;
     border-color: yellowgreen;
-    border-style: solid;
+    border-style: none;
     width: 40px;
     text-align: center;
+    margin: 0
   }
   #guess {
     color: white;
@@ -126,9 +124,15 @@ img {
   }
 
   #message {
-    font-size: 20px;
+    font-size: 1em;
   }
   #keyboard{
     border-style: none;
+    padding: 0;
   }
+  #keyboard>p {
+    font-size: 50px;
+    padding: 10px 10px 10px 10px;
+  }
+ 
 }
