@@ -1,105 +1,143 @@
 * {
-    box-sizing: border-box;
-    font-family: 'Silkscreen', cursive;
+  box-sizing: border-box;
+  font-family: 'Silkscreen', cursive;
 }
 
 body {
-    color: greenyellow;
-    height: 100vh;
-    background-image: url(https://brennanp93.github.io/SpaceMan/images/pixelbg.png);
-    background-size: auto;
-    background-repeat: no-repeat;
-    padding-top: 50px;
+  color: greenyellow;
+  height: 100vh;
+  background-image: url(https://brennanp93.github.io/SpaceMan/images/pixelbg.png);
+  background-size: auto;
+  background-repeat: no-repeat;
+  padding-top: 50px;
 }
 
 h1 {
-    font-size: 35px; 
+  font-size: 35px;
 }
 
 #message {
-    font-size: 25px;
+  font-size: 25px;
 }
 
 main * {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 main {
-    margin: 0% 5% 0% 5%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  margin: 0% 5% 0% 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 
-#keyboard > p {
-    font-size: 30px;
-    padding: 10px 10px 10px 10px;
-}
 
-.letter{
-    color: greenyellow;
-    background-color: black;
-    font-size: 1em;
-    border-width: 1px;
-    border-color: white;
-    border-style: solid;
-    width: 40px;
-    text-align: center;
-    padding: 5px 10px 5px 10px;
+
+
+.letter {
+  color: greenyellow;
+  background-color: black;
+  font-size: 2em;
+  border-width: 1px;
+  border-color: yellowgreen;
+  border-style: solid;
+  width: 40px;
+  text-align: center;
+  margin: 1%;
+  /* padding: 5px 10px 5px 10px; */
 }
 
 .letter:hover {
-    background-color: greenyellow;
-    color: black;
-    border-color: black;
-    cursor: pointer;
+  background-color: greenyellow;
+  color: black;
+  border-color: black;
+  cursor: pointer;
 }
 
 #keyboard {
-    background-color: rgba(0, 0, 0, 0.531);
-    flex-wrap: wrap;
-    border-style: dashed;
-    border-color: yellowgreen;
-    border-width: 5px;
-    padding: 5px;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  background-color: rgba(67, 67, 67, 0.531);
+  /* flex-wrap: wrap; */
+  border-style: dashed;
+  border-color: yellowgreen;
+  border-width: 5px;
+  padding: 5px;
+  /* width: 40% */
 }
 
+#keyboard>p {
+  font-size: 50px;
+  padding: 10px 10px 10px 10px;
+}
 
 button {
-    display: flex;
-    font-size: 1em;
-    background-color: black;
-    color: greenyellow;
-    position:inherit;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    width: 150px;
-    border-style: dashed;
-    border-width: 5px;
-    border-color: yellowgreen;
+  display: flex;
+  font-size: 1em;
+  background-color: black;
+  color: greenyellow;
+  position: inherit;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  width: 150px;
+  border-style: dashed;
+  border-width: 5px;
+  border-color: yellowgreen;
 }
 
 button:hover {
-    color: black;
-    background-color: greenyellow;
-    border-color: black;
-    transform: scale(1.1);
+  color: black;
+  background-color: greenyellow;
+  border-color: black;
+  transform: scale(1.1);
 }
 
 #guess {
-    color: white;
-    font-size: 4em;
-    letter-spacing: 1em;
-    width: 100%;
-    height: 100px;
-    margin-bottom: 1%;
+  color: white;
+  font-size: 4em;
+  letter-spacing: 1%;
+  width: 100%;
+  height: 100px;
+  margin-bottom: 1%;
 }
 
 img {
-    height: 250px;
+  height: 250px;
 }
 
+@media (max-width: 500px) {
+
+  .letter {
+    color: greenyellow;
+    background-color: black;
+    font-size: 2em;
+    border-width: 1px;
+    border-color: yellowgreen;
+    border-style: solid;
+    width: 40px;
+    text-align: center;
+    /* margin: 1%; */
+    /* padding: 5px 10px 5px 10px; */
+  }
+  #guess {
+    color: white;
+    font-size: 2em;
+    /* letter-spacing: 1%; */
+    width: 100%;
+    height: 100px;
+    margin-bottom: 1%;
+  }
+
+  #message {
+    font-size: 20px;
+  }
+  #keyboard{
+    border-style: none;
+  }
+
+
+}
