@@ -56,7 +56,7 @@ main {
 #keyboard {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
-  background-color: rgba(67, 67, 67, 0.531);
+  /* background-color: rgba(67, 67, 67, 0.531); */
   border-style: dashed;
   border-color: yellowgreen;
   border-width: 5px;
@@ -106,7 +106,7 @@ img {
 
   .letter {
     color: greenyellow;
-    background-color: black;
+    
     font-size: 2em;
     border-width: 1px;
     border-color: yellowgreen;
