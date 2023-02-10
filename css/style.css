@@ -13,7 +13,7 @@ body {
 }
 
 h1 {
-  font-size: px;
+  font-size: 50px;
 }
 
 #message {
@@ -56,7 +56,6 @@ main {
 #keyboard {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
-  /* background-color: rgba(67, 67, 67, 0.531); */
   border-style: dashed;
   border-color: yellowgreen;
   border-width: 5px;
@@ -103,10 +102,8 @@ img {
 }
 
 @media (max-width: 600px) {
-
   .letter {
     color: greenyellow;
-    
     font-size: 2em;
     border-width: 1px;
     border-color: yellowgreen;
@@ -115,6 +112,7 @@ img {
     text-align: center;
     margin: 0
   }
+
   #guess {
     color: white;
     font-size: 2em;
@@ -126,13 +124,14 @@ img {
   #message {
     font-size: 1em;
   }
-  #keyboard{
+
+  #keyboard {
     border-style: none;
     padding: 0;
   }
+
   #keyboard>p {
     font-size: 50px;
     padding: 10px 10px 10px 10px;
   }
- 
 }
